@@ -1,0 +1,547 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VIBE SPORT — Boutique & Salle de Sport</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="icon.jpg" />
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+      <a class="nav-logo" href="index.html">VIBE SPORT</a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Accueil</a></li>
+        <li><a href="boutique.html">Boutique</a></li>
+        <li><a href="salle.html">Salle de Sport</a></li>
+        <li><a href="fidelite.html">Fidélité ⭐</a></li>
+        <li>
+          <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank"
+            >Contactez-nous ⭐</a
+          >
+        </li>
+      </ul>
+      <div class="nav-actions">
+        <a href="fidelite.html" class="nav-icon-btn" title="Points fidélité"
+          >⭐
+          <span
+            class="points-display"
+            style="
+              font-size: 11px;
+              font-weight: 800;
+              color: var(--orange);
+              margin-left: 2px;
+            "
+            >0 pts</span
+          ></a
+        >
+        <button class="nav-icon-btn" onclick="openCart()" title="Panier">
+          🛒 <span class="badge cart-badge-val" style="display: none">0</span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-left">
+        <div class="hero-eyebrow">⚡ Boutique + Salle de sport</div>
+        <h1 class="hero-title">
+          ATTEINS<br />
+          <span class="line-orange">TES OBJECTIFS</span>
+          <span class="line-blue" style="font-size: clamp(48px, 5vw, 72px)"
+            >SANS COMPROMIS</span
+          >
+        </h1>
+        <p class="hero-sub">
+          VIBE SPORT combine une boutique sport complète et une salle de sport
+          premium. Commandez en ligne, entraînez-vous comme un pro, et gagnez
+          des points à chaque euro dépensé.
+        </p>
+        <div class="hero-btns">
+          <a
+            href="boutique.html"
+            class="btn-primary"
+            style="padding: 14px 32px; font-size: 14px"
+            >🛍️ Voir la boutique</a
+          >
+          <a
+            href="salle.html"
+            class="btn-blue"
+            style="padding: 14px 32px; font-size: 14px"
+            >🏋️ Notre salle</a
+          >
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="stat-n">500+</div>
+            <div class="stat-l">Produits</div>
+          </div>
+          <div class="hero-stat">
+            <div class="stat-n blue">34.99€</div>
+            <div class="stat-l">/mois abonnement</div>
+          </div>
+          <div class="hero-stat">
+            <div class="stat-n">1pt</div>
+            <div class="stat-l">= 1€ dépensé</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="hero-bg-text">VIBE</div>
+        <div class="pill-badge">NOUVEAU 2025</div>
+        <div class="hero-float-card">
+          <span class="hero-main-emoji">🏋️</span>
+          <div class="hero-card-mini">
+            <span class="hcm-icon">⭐</span>
+            <div>
+              <div class="hcm-name">Points Fidélité</div>
+              <div class="hcm-price">1€ = 1 pt</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MARQUEE -->
+    <div class="marquee-strip">
+      <div class="marquee-track">
+        <span class="marquee-item"
+          >RUNNING <span class="marquee-sep">◆</span></span
+        >
+        <span class="marquee-item"
+          >NUTRITION <span class="marquee-sep">◆</span></span
+        >
+        <span class="marquee-item"
+          >MUSCULATION <span class="marquee-sep">◆</span></span
+        >
+        <span class="marquee-item"
+          >ABONNEMENT 34.99€ <span class="marquee-sep">◆</span></span
+        >
+        <span class="marquee-item"
+          >LIVRAISON OFFERTE <span class="marquee-sep">◆</span></span
+        >
+        <span class="marquee-item"
+          >POINTS FIDÉLITÉ <span class="marquee-sep">◆</span></span
+        >
+        <span class="marquee-item"
+          >YOGA <span class="marquee-sep">◆</span></span
+        >
+        <span class="marquee-item"
+          >CYCLISME <span class="marquee-sep">◆</span></span
+        >
+        <span class="marquee-item"
+          >RUNNING <span class="marquee-sep">◆</span></span
+        >
+        <span class="marquee-item"
+          >NUTRITION <span class="marquee-sep">◆</span></span
+        >
+        <span class="marquee-item"
+          >MUSCULATION <span class="marquee-sep">◆</span></span
+        >
+        <span class="marquee-item"
+          >ABONNEMENT 34.99€ <span class="marquee-sep">◆</span></span
+        >
+        <span class="marquee-item"
+          >LIVRAISON OFFERTE <span class="marquee-sep">◆</span></span
+        >
+        <span class="marquee-item"
+          >POINTS FIDÉLITÉ <span class="marquee-sep">◆</span></span
+        >
+        <span class="marquee-item"
+          >YOGA <span class="marquee-sep">◆</span></span
+        >
+        <span class="marquee-item"
+          >CYCLISME <span class="marquee-sep">◆</span></span
+        >
+      </div>
+    </div>
+
+    <!-- BOUTIQUE / SALLE SPLIT -->
+    <div class="split-section">
+      <div class="split-pane shop">
+        <div class="split-bg-emoji">🛒</div>
+        <span class="split-tag shop">🛍️ Boutique en ligne</span>
+        <div class="split-title">
+          LA BOUTIQUE<br /><span style="color: var(--orange)">SPORT</span>
+        </div>
+        <p class="split-desc">
+          Plus de 20 produits premium : nutrition sportive, équipements,
+          vêtements techniques et accessoires. Livraison rapide, paiement
+          sécurisé.
+        </p>
+        <a
+          href="boutique.html"
+          class="btn-primary"
+          style="padding: 14px 30px; font-size: 14px; width: fit-content"
+          >Explorer la boutique →</a
+        >
+      </div>
+      <div class="split-pane gym">
+        <div class="split-bg-emoji">🏋️</div>
+        <span class="split-tag gym">🏋️ Salle de Sport</span>
+        <div class="split-title">
+          LA SALLE<br /><span style="color: var(--blue-light)">PREMIUM</span>
+        </div>
+        <div class="gym-price-badge">
+          <span class="gym-price-big">34.99€</span>
+          <span class="gym-price-sub">/ mois — sans engagement</span>
+        </div>
+        <div class="gym-features">
+          <div class="gym-feat">
+            <span class="gym-feat-icon">💪</span>Accès illimité 7j/7 · 6h–23h
+          </div>
+          <div class="gym-feat">
+            <span class="gym-feat-icon">👨‍🏫</span>Cours collectifs inclus
+          </div>
+          <div class="gym-feat">
+            <span class="gym-feat-icon">⭐</span>+34 pts fidélité / mois
+          </div>
+        </div>
+        <a
+          href="salle.html"
+          class="btn-blue"
+          style="padding: 14px 30px; font-size: 14px; width: fit-content"
+          >S'abonner maintenant →</a
+        >
+      </div>
+    </div>
+
+    <!-- BESTSELLERS -->
+    <section class="preview-section">
+      <div class="container">
+        <div class="flex-between mb-32">
+          <div>
+            <span class="section-label">Les plus populaires</span>
+            <h2 class="section-title">BEST<span>SELLERS</span></h2>
+          </div>
+          <a href="boutique.html" class="btn-outline">Voir tout →</a>
+        </div>
+        <div class="preview-grid" id="bestsellers-grid">
+          <!-- JS rendered -->
+        </div>
+      </div>
+    </section>
+
+    <!-- LOYALTY TEASER -->
+    <div class="container">
+      <div class="loyalty-teaser">
+        <div>
+          <span class="section-label">Programme fidélité</span>
+          <div class="lt-title">
+            CHAQUE €<br /><span style="color: var(--orange)">= 1 POINT</span>
+          </div>
+          <p class="lt-desc">
+            Gagnez des points à chaque achat et chaque mois d'abonnement.
+            Débloquez des réductions, cadeaux et avantages exclusifs.
+          </p>
+          <div class="lt-tiers">
+            <div class="lt-tier" style="border-color: rgba(205, 127, 50, 0.4)">
+              <div class="lt-tier-icon">🥉</div>
+              <div class="lt-tier-name" style="color: #cd7f32">Bronze</div>
+              <div class="lt-tier-pts">0 pts</div>
+            </div>
+            <div class="lt-tier" style="border-color: rgba(168, 178, 192, 0.4)">
+              <div class="lt-tier-icon">🥈</div>
+              <div class="lt-tier-name" style="color: #a8b2c0">Silver</div>
+              <div class="lt-tier-pts">200 pts</div>
+            </div>
+            <div class="lt-tier" style="border-color: rgba(255, 215, 0, 0.4)">
+              <div class="lt-tier-icon">🥇</div>
+              <div class="lt-tier-name" style="color: #ffd700">Gold</div>
+              <div class="lt-tier-pts">500 pts</div>
+            </div>
+            <div class="lt-tier" style="border-color: rgba(229, 228, 226, 0.4)">
+              <div class="lt-tier-icon">💎</div>
+              <div class="lt-tier-name" style="color: #e5e4e2">Platinum</div>
+              <div class="lt-tier-pts">1000 pts</div>
+            </div>
+          </div>
+          <a
+            href="fidelite.html"
+            class="btn-primary mt-24"
+            style="display: inline-block; width: fit-content"
+            >Voir mon compte fidélité →</a
+          >
+        </div>
+        <div class="lt-right">
+          <div style="font-size: 64px; margin-bottom: 8px">⭐</div>
+          <div class="lt-pts-display points-display">0 pts</div>
+          <div class="lt-pts-label">vos points actuels</div>
+          <a href="fidelite.html" class="btn-outline">Voir ma progression →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- FEATURES -->
+    <div class="features-strip">
+      <div class="container">
+        <div class="features-grid">
+          <div class="feat-item">
+            <div class="feat-icon-box orange">🚚</div>
+            <div>
+              <div class="feat-title">Livraison offerte</div>
+              <div class="feat-desc">
+                Dès 50€ d'achat partout en France en 48h.
+              </div>
+            </div>
+          </div>
+          <div class="feat-item">
+            <div class="feat-icon-box blue">↩️</div>
+            <div>
+              <div class="feat-title">Retours 30 jours</div>
+              <div class="feat-desc">Retour gratuit et sans condition.</div>
+            </div>
+          </div>
+          <div class="feat-item">
+            <div class="feat-icon-box orange">🔒</div>
+            <div>
+              <div class="feat-title">Paiement sécurisé</div>
+              <div class="feat-desc">CB, PayPal, Apple Pay — 100% chiffré.</div>
+            </div>
+          </div>
+          <div class="feat-item">
+            <div class="feat-icon-box blue">⭐</div>
+            <div>
+              <div class="feat-title">Points à chaque achat</div>
+              <div class="feat-desc">1€ dépensé = 1 point fidélité cumulé.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <span class="footer-logo-txt">VIBE SPORT</span>
+            <p class="footer-desc">
+              Boutique sport en ligne et salle de sport premium depuis 2026.
+              Qualité, performance et fidélité.
+            </p>
+          </div>
+          <div class="footer-col">
+            <h4>Navigation</h4>
+            <ul>
+              <li><a href="index.html">Accueil</a></li>
+              <li><a href="boutique.html">Boutique</a></li>
+              <li><a href="salle.html">Salle de Sport</a></li>
+              <li><a href="fidelite.html">Fidélité</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Boutique</h4>
+            <ul>
+              <li><a href="boutique.html">Nutrition</a></li>
+              <li><a href="boutique.html">Équipement</a></li>
+              <li><a href="boutique.html">Vêtements</a></li>
+              <li><a href="boutique.html">Accessoires</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>credit</h4>
+            <p>
+              réalisé par <ul>
+                <li>Lea </li>
+                <li><a href="VID_20260324_151628_197.mp4" target="_blank" style="color: white;">Emma</a></li>
+                <li>Jules</li>
+                <li>Kilian</li>
+                <li>Julien</li>
+              </ul>
+              
+            </p>
+          </div>
+          <div class="footer-col">
+            <h4>Aide</h4>
+            <ul>
+              <li><a href="#">Livraison</a></li>
+              <li><a href="#">Retours</a></li>
+              <li><a href="#">FAQ</a></li>
+              <li>
+                <a
+                  href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+                  target="_blank"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span class="footer-copy"
+            >© 2026 VIBE SPORT — Tous droits réservés.</span
+          >
+          <span class="footer-copy"
+            >Mentions légales · CGV · Confidentialité</span
+          >
+        </div>
+      </div>
+    </footer>
+
+    <!-- CART SIDEBAR -->
+    <div class="cart-overlay" id="cart-overlay" onclick="closeCart()"></div>
+    <div class="cart-sidebar" id="cart-sidebar">
+      <div class="cart-header">
+        <div class="cart-title">🛒 Mon Panier</div>
+        <button class="cart-close" onclick="closeCart()">✕</button>
+      </div>
+      <div class="cart-items" id="cart-items"></div>
+      <div class="cart-footer">
+        <div class="cart-points-earn" id="cart-earn-pts">
+          +0 pts fidélité à gagner sur cette commande
+        </div>
+        <div class="cart-totals">
+          <div class="cart-total-row">
+            <span>Sous-total</span><span id="cart-subtotal">0.00 €</span>
+          </div>
+          <div class="cart-total-row">
+            <span>Livraison</span><span style="color: #22c55e">Offerte</span>
+          </div>
+          <div class="cart-total-row grand">
+            <span>Total</span><span class="val" id="cart-grand">0.00 €</span>
+          </div>
+        </div>
+        <button class="checkout-btn" onclick="STORE.checkout()">
+          COMMANDER →
+        </button>
+      </div>
+    </div>
+
+    <!-- ORDER SUCCESS MODAL -->
+    <div class="modal-overlay" id="order-modal">
+      <div class="modal-box">
+        <div style="font-size: 64px; margin-bottom: 16px">🎉</div>
+        <div
+          style="
+            font-family: &quot;Barlow Condensed&quot;, sans-serif;
+            font-size: 40px;
+            font-weight: 900;
+            color: var(--white);
+            margin-bottom: 8px;
+          "
+        >
+          COMMANDÉ AVEC SUCCÈS !
+        </div>
+        <p style="color: var(--muted); font-size: 14px; margin-bottom: 28px">
+          Votre commande a été confirmée. Livraison sous 48h.
+        </p>
+        <div
+          style="
+            background: var(--dark3);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 20px;
+            margin-bottom: 24px;
+          "
+        >
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              margin-bottom: 10px;
+            "
+          >
+            <span style="color: var(--muted); font-size: 13px"
+              >Montant total</span
+            >
+            <span style="font-weight: 800; color: var(--white)" id="om-total"
+              >0 €</span
+            >
+          </div>
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              margin-bottom: 10px;
+            "
+          >
+            <span style="color: var(--muted); font-size: 13px"
+              >Points gagnés</span
+            >
+            <span style="font-weight: 800; color: var(--orange)" id="om-points"
+              >0 pts</span
+            >
+          </div>
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              border-top: 1px solid var(--border);
+              padding-top: 10px;
+              margin-top: 4px;
+            "
+          >
+            <span style="color: var(--muted); font-size: 13px"
+              >Total points cumulés</span
+            >
+            <span
+              style="
+                font-family: &quot;Barlow Condensed&quot;, sans-serif;
+                font-size: 22px;
+                font-weight: 900;
+                color: var(--blue-light);
+              "
+              id="om-total-pts"
+              >0 pts</span
+            >
+          </div>
+        </div>
+        <div style="display: flex; gap: 12px">
+          <a
+            href="fidelite.html"
+            class="btn-blue"
+            style="flex: 1; text-align: center; padding: 12px"
+            >Voir mes points ⭐</a
+          >
+          <button
+            onclick="closeOrderModal()"
+            class="btn-outline"
+            style="flex: 1"
+          >
+            Continuer →
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- TOAST CONTAINER -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <script src="app.js"></script>
+    <script>
+      // Render 4 bestsellers
+      const bests = [1, 5, 8, 16];
+      const grid = document.getElementById("bestsellers-grid");
+      bests.forEach((id) => {
+        const p = PRODUCTS.find((x) => x.id === id);
+        if (!p) return;
+        const stars = "★".repeat(p.stars) + "☆".repeat(5 - p.stars);
+        const badgeHTML = p.badge
+          ? `<div class="product-badge badge-${p.badge}">${p.badge === "hot" ? "🔥 Bestseller" : p.badge === "new" ? "🆕 Nouveau" : p.badge === "sale" ? "💥 Promo" : p.badge}</div>`
+          : "";
+        const oldHTML = p.old
+          ? `<span class="product-price-old">${p.old.toFixed(2)} €</span>`
+          : "";
+        grid.innerHTML += `
+      <div class="product-card" data-cat="${p.cat}">
+        <div class="product-img">${badgeHTML}${p.emoji}</div>
+        <div class="product-body">
+          <div class="product-brand">${p.brand}</div>
+          <div class="product-stars">${stars}</div>
+          <div class="product-name">${p.name}</div>
+          <div class="product-desc">${p.desc}</div>
+          <div class="product-footer">
+            <div>
+              <span class="product-price">${p.price.toFixed(2)} €</span>${oldHTML}
+              <div class="product-points">+${Math.floor(p.price)} pts fidélité</div>
+            </div>
+            <button class="add-to-cart" id="atc-h-${p.id}" onclick="STORE.addToCart(${p.id});this.classList.add('added');this.textContent='✓';setTimeout(()=>{this.classList.remove('added');this.textContent='+'},1500)">+</button>
+          </div>
+        </div>
+      </div>`;
+      });
+    </script>
+  </body>
+</html>

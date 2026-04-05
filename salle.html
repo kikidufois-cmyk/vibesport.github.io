@@ -1,0 +1,551 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Salle de Sport — VIBE SPORT</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="icon.jpg" />
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+      <a class="nav-logo" href="index.html">FORZA SPORT</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="boutique.html">Boutique</a></li>
+        <li><a href="salle.html" class="active">Salle de Sport</a></li>
+        <li><a href="fidelite.html">Fidélité ⭐</a></li>
+        <li>
+          <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank"
+            >Contactez-nous ⭐</a
+          >
+        </li>
+      </ul>
+      <div class="nav-actions">
+        <a href="fidelite.html" class="nav-icon-btn"
+          >⭐
+          <span
+            class="points-display"
+            style="
+              font-size: 11px;
+              font-weight: 800;
+              color: var(--orange);
+              margin-left: 2px;
+            "
+            >0 pts</span
+          ></a
+        >
+        <button class="nav-icon-btn" onclick="openCart()">
+          🛒 <span class="badge cart-badge-val" style="display: none">0</span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="gym-hero">
+      <div class="gym-hero-left">
+        <div class="gym-eyebrow">🏋️ Salle de Sport Premium</div>
+        <h1 class="gym-title">
+          FORGE-TOI<br />
+          <span style="color: var(--blue-light)">UNE SALLE</span><br />
+          <span style="font-size: clamp(40px, 4.5vw, 60px); color: var(--muted)"
+            >À DOMICILE</span
+          >
+        </h1>
+        <p class="gym-sub">
+          Accès illimité à nos équipements dernière génération, coaching
+          professionnel et cours collectifs inclus. Tout ça pour 34.99€/mois.
+        </p>
+
+        <div class="sub-card">
+          <div class="sub-card-header">
+            <div class="sub-card-title">Abonnement VIBE</div>
+            <span class="sub-most-popular">⭐ Populaire</span>
+          </div>
+          <div class="sub-price">
+            <span class="sub-price-val">34.99€</span>
+            <span class="sub-price-per">/mois</span>
+          </div>
+          <div class="sub-price-note">
+            Sans engagement — résiliable à tout moment
+          </div>
+          <ul class="sub-features">
+            <li>
+              <span class="sub-feat-icon">🏋️</span>
+              <div class="sub-feat-text">
+                <strong>Accès illimité</strong
+                ><span>7j/7 · 6h–23h · tous les équipements</span>
+              </div>
+            </li>
+            <li>
+              <span class="sub-feat-icon">👨‍🏫</span>
+              <div class="sub-feat-text">
+                <strong>Cours collectifs inclus</strong
+                ><span>Yoga, CrossFit, Cardio, Zumba et +</span>
+              </div>
+            </li>
+            <li>
+              <span class="sub-feat-icon">💪</span>
+              <div class="sub-feat-text">
+                <strong>Bilan forme initial</strong
+                ><span>Bilan avec un coach dès l'inscription</span>
+              </div>
+            </li>
+            <li>
+              <span class="sub-feat-icon">🚿</span>
+              <div class="sub-feat-text">
+                <strong>Vestiaires & douches</strong
+                ><span>Cadenas fourni, serviettes disponibles</span>
+              </div>
+            </li>
+            <li>
+              <span class="sub-feat-icon">⭐</span>
+              <div class="sub-feat-text">
+                <strong>+34 pts fidélité / mois</strong
+                ><span>Accumulez des points chaque mois</span>
+              </div>
+            </li>
+            <li>
+              <span class="sub-feat-icon">📱</span>
+              <div class="sub-feat-text">
+                <strong>App VIBE SPORT incluse</strong
+                ><span>Suivi séances, planning cours, nutrition</span>
+              </div>
+            </li>
+          </ul>
+          <button
+            class="sub-btn"
+            onclick="
+              STORE.subscribeGym();
+              this.textContent = '✓ ABONNÉ !';
+              this.style.background = 'linear-gradient(135deg,#22c55e,#16a34a)';
+              setTimeout(() => {
+                this.textContent = 'S\'ABONNER MAINTENANT →';
+                this.style.background = '';
+              }, 3000);
+            "
+          >
+            S'ABONNER MAINTENANT →
+          </button>
+          <div class="sub-guarantee">
+            🔒 Paiement sécurisé · Résiliation en 1 clic
+          </div>
+        </div>
+      </div>
+
+      <div class="gym-hero-right">
+        <div class="gym-bg-text">GYM</div>
+        <div class="gym-float">
+          <span class="gym-main-emoji">🏋️</span>
+          <div class="gym-price-chip">
+            <div class="price">34.99€</div>
+            <div class="per">par mois · sans engagement</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ÉQUIPEMENTS -->
+    <section class="equip-section">
+      <div class="container">
+        <span class="section-label">Nos installations</span>
+        <h2 class="section-title">
+          ÉQUIPEMENTS <span class="blue">PREMIUM</span>
+        </h2>
+        <div class="equip-grid">
+          <div class="equip-card">
+            <div class="equip-img">🏃</div>
+            <div class="equip-body">
+              <div class="equip-name">Zone Cardio</div>
+              <div class="equip-desc">
+                20 tapis de course, vélos elliptiques et rameurs dernière
+                génération avec écrans connectés.
+              </div>
+            </div>
+          </div>
+          <div class="equip-card">
+            <div class="equip-img">🏋️</div>
+            <div class="equip-body">
+              <div class="equip-name">Zone Free Weights</div>
+              <div class="equip-desc">
+                Haltères de 1 à 50kg, barres olympiques, racks à squat et bancs
+                réglables.
+              </div>
+            </div>
+          </div>
+          <div class="equip-card">
+            <div class="equip-img">💪</div>
+            <div class="equip-body">
+              <div class="equip-name">Zone Machines</div>
+              <div class="equip-desc">
+                30 appareils de musculation guidée pour tous les groupes
+                musculaires.
+              </div>
+            </div>
+          </div>
+          <div class="equip-card">
+            <div class="equip-img">🧘</div>
+            <div class="equip-body">
+              <div class="equip-name">Studio Cours</div>
+              <div class="equip-desc">
+                200m² dédié aux cours collectifs : yoga, pilates, danse et HIIT.
+              </div>
+            </div>
+          </div>
+          <div class="equip-card">
+            <div class="equip-img">🥊</div>
+            <div class="equip-body">
+              <div class="equip-name">Zone Boxe & Arts martiaux</div>
+              <div class="equip-desc">
+                Sacs de frappe, miroirs, tatamis pour la pratique des arts
+                martiaux.
+              </div>
+            </div>
+          </div>
+          <div class="equip-card">
+            <div class="equip-img">🚿</div>
+            <div class="equip-body">
+              <div class="equip-name">Vestiaires Premium</div>
+              <div class="equip-desc">
+                Casiers sécurisés, douches chaudes, sauna et espace détente.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COURS COLLECTIFS -->
+    <section class="cours-section">
+      <div class="container">
+        <span class="section-label">Cours collectifs inclus</span>
+        <h2 class="section-title">VOTRE <span>PLANNING</span></h2>
+        <div class="cours-grid">
+          <div class="cours-card">
+            <div class="cours-icon">🧘</div>
+            <div class="cours-name">Yoga</div>
+            <div class="cours-times">Lun · Mer · Ven · 9h–10h</div>
+          </div>
+          <div class="cours-card">
+            <div class="cours-icon">💥</div>
+            <div class="cours-name">CrossFit</div>
+            <div class="cours-times">Mar · Jeu · Sam · 7h–8h</div>
+          </div>
+          <div class="cours-card">
+            <div class="cours-icon">🎵</div>
+            <div class="cours-name">Zumba</div>
+            <div class="cours-times">Mar · Jeu · 18h30–19h30</div>
+          </div>
+          <div class="cours-card">
+            <div class="cours-icon">🚴</div>
+            <div class="cours-name">Spinning</div>
+            <div class="cours-times">Lun · Mer · 12h–13h</div>
+          </div>
+          <div class="cours-card">
+            <div class="cours-icon">🥊</div>
+            <div class="cours-name">Boxe Cardio</div>
+            <div class="cours-times">Mer · Ven · 19h–20h</div>
+          </div>
+          <div class="cours-card">
+            <div class="cours-icon">🤸</div>
+            <div class="cours-name">Pilates</div>
+            <div class="cours-times">Lun · Jeu · 17h–18h</div>
+          </div>
+          <div class="cours-card">
+            <div class="cours-icon">🔥</div>
+            <div class="cours-name">HIIT</div>
+            <div class="cours-times">Sam · Dim · 10h–11h</div>
+          </div>
+          <div class="cours-card">
+            <div class="cours-icon">🏊</div>
+            <div class="cours-name">Aquafitness</div>
+            <div class="cours-times">Sur inscription</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COACHES -->
+    <section class="coaches-section">
+      <div class="container">
+        <span class="section-label">Notre équipe</span>
+        <h2 class="section-title">NOS <span>COACHS</span></h2>
+        <div class="coaches-grid mt-32">
+          <div class="coach-card">
+            <div class="coach-avatar">👨‍💪</div>
+            <div class="coach-name">Maxime Dupont</div>
+            <div class="coach-spec">Musculation · CrossFit</div>
+            <div class="coach-bio">
+              Ancien champion régional de powerlifting, 8 ans d'expérience en
+              coaching individuel et collectif.
+            </div>
+          </div>
+          <div class="coach-card">
+            <div class="coach-avatar">👩‍🏫</div>
+            <div class="coach-name">Sophie Martin</div>
+            <div class="coach-spec">Yoga · Pilates · Bien-être</div>
+            <div class="coach-bio">
+              Certifiée RYT 500h, spécialisée yoga thérapeutique et gestion du
+              stress par le mouvement.
+            </div>
+          </div>
+          <div class="coach-card">
+            <div class="coach-avatar">🥊</div>
+            <div class="coach-name">Karim Benali</div>
+            <div class="coach-spec">Boxe · Arts Martiaux</div>
+            <div class="coach-bio">
+              Ceinture noire 3e dan, ancien compétiteur professionnel, coach
+              technique depuis 6 ans.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+      <div class="container">
+        <div style="text-align: center; margin-bottom: 0">
+          <span class="section-label">Questions fréquentes</span>
+          <h2 class="section-title">FAQ</h2>
+        </div>
+        <div class="faq-list">
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">
+              Comment résilier mon abonnement ? <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-a">
+              Vous pouvez résilier à tout moment depuis votre espace client,
+              sans frais ni préavis. La résiliation prend effet à la fin du mois
+              en cours.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">
+              Les cours collectifs sont-ils vraiment inclus ?
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-a">
+              Oui, tous les cours collectifs (Yoga, CrossFit, Zumba, Spinning,
+              Boxe, etc.) sont inclus dans votre abonnement mensuel à
+              34.99€/mois.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">
+              Quand sont crédités les points fidélité ?
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-a">
+              Les points sont crédités immédiatement après chaque paiement. Pour
+              l'abonnement mensuel, vous recevez +34 points chaque mois au
+              renouvellement.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">
+              Y a-t-il un engagement de durée ? <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-a">
+              Aucun engagement. Vous payez mois par mois et pouvez stopper quand
+              vous voulez. Pas de frais d'inscription non plus.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <span class="footer-logo-txt">VIBE SPORT</span>
+            <p class="footer-desc">
+              Boutique sport en ligne et salle de sport premium depuis 2026.
+              Qualité, performance et fidélité.
+            </p>
+          </div>
+          <div class="footer-col">
+            <h4>Navigation</h4>
+            <ul>
+              <li><a href="index.html">Accueil</a></li>
+              <li><a href="boutique.html">Boutique</a></li>
+              <li><a href="salle.html">Salle de Sport</a></li>
+              <li><a href="fidelite.html">Fidélité</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Boutique</h4>
+            <ul>
+              <li><a href="boutique.html">Nutrition</a></li>
+              <li><a href="boutique.html">Équipement</a></li>
+              <li><a href="boutique.html">Vêtements</a></li>
+              <li><a href="boutique.html">Accessoires</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>credit</h4>
+            <p>
+              réalisé par <ul>
+                <li>Lea </li>
+                <li><a href="VID_20260324_151628_197.mp4" target="_blank" style="color: white;">Emma</a></li>
+                <li>Jules</li>
+                <li>Kilian</li>
+                <li>Julien</li>
+              </ul>
+              
+            </p>
+          </div>
+          <div class="footer-col">
+            <h4>Aide</h4>
+            <ul>
+              <li><a href="#">Livraison</a></li>
+              <li><a href="#">Retours</a></li>
+              <li><a href="#">FAQ</a></li>
+              <li>
+                <a
+                  href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+                  target="_blank"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span class="footer-copy"
+            >© 2026 VIBE SPORT — Tous droits réservés.</span
+          >
+          <span class="footer-copy"
+            >Mentions légales · CGV · Confidentialité</span
+          >
+        </div>
+      </div>
+    </footer>
+
+    <!-- CART SIDEBAR -->
+    <div class="cart-overlay" id="cart-overlay" onclick="closeCart()"></div>
+    <div class="cart-sidebar" id="cart-sidebar">
+      <div class="cart-header">
+        <div class="cart-title">🛒 Mon Panier</div>
+        <button class="cart-close" onclick="closeCart()">✕</button>
+      </div>
+      <div class="cart-items" id="cart-items"></div>
+      <div class="cart-footer">
+        <div class="cart-points-earn" id="cart-earn-pts">
+          +0 pts fidélité à gagner
+        </div>
+        <div class="cart-totals">
+          <div class="cart-total-row">
+            <span>Sous-total</span><span id="cart-subtotal">0.00 €</span>
+          </div>
+          <div class="cart-total-row">
+            <span>Livraison</span><span style="color: #22c55e">Offerte</span>
+          </div>
+          <div class="cart-total-row grand">
+            <span>Total</span><span class="val" id="cart-grand">0.00 €</span>
+          </div>
+        </div>
+        <button class="checkout-btn" onclick="STORE.checkout()">
+          COMMANDER →
+        </button>
+      </div>
+    </div>
+    <div class="modal-overlay" id="order-modal">
+      <div class="modal-box">
+        <div style="font-size: 64px; margin-bottom: 16px">🎉</div>
+        <div
+          style="
+            font-family: &quot;Barlow Condensed&quot;, sans-serif;
+            font-size: 40px;
+            font-weight: 900;
+            margin-bottom: 8px;
+          "
+        >
+          COMMANDÉ AVEC SUCCÈS !
+        </div>
+        <p style="color: var(--muted); font-size: 14px; margin-bottom: 24px">
+          Livraison sous 48h.
+        </p>
+        <div
+          style="
+            background: var(--dark3);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 20px;
+            margin-bottom: 20px;
+          "
+        >
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              margin-bottom: 8px;
+            "
+          >
+            <span style="color: var(--muted); font-size: 13px">Total</span
+            ><span style="font-weight: 800" id="om-total">0 €</span>
+          </div>
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              margin-bottom: 8px;
+            "
+          >
+            <span style="color: var(--muted); font-size: 13px"
+              >Points gagnés</span
+            ><span style="font-weight: 800; color: var(--orange)" id="om-points"
+              >0 pts</span
+            >
+          </div>
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              border-top: 1px solid var(--border);
+              padding-top: 8px;
+            "
+          >
+            <span style="color: var(--muted); font-size: 13px">Cumulé</span
+            ><span
+              style="
+                font-family: &quot;Barlow Condensed&quot;, sans-serif;
+                font-size: 22px;
+                font-weight: 900;
+                color: var(--blue-light);
+              "
+              id="om-total-pts"
+              >0 pts</span
+            >
+          </div>
+        </div>
+        <div style="display: flex; gap: 12px">
+          <a
+            href="fidelite.html"
+            class="btn-blue"
+            style="flex: 1; text-align: center; padding: 12px"
+            >Voir mes points ⭐</a
+          >
+          <button
+            onclick="closeOrderModal()"
+            class="btn-outline"
+            style="flex: 1"
+          >
+            Fermer
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="toast-container" class="toast-container"></div>
+
+    <script src="app.js"></script>
+    <script>
+      function toggleFaq(el) {
+        el.parentElement.classList.toggle("open");
+      }
+    </script>
+  </body>
+</html>

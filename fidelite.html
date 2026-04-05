@@ -1,0 +1,752 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Programme Fidélité — VIBE SPORT</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="icon.jpg" />
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+      <a class="nav-logo" href="index.html">VIBE SPORT</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="boutique.html">Boutique</a></li>
+        <li><a href="salle.html">Salle de Sport</a></li>
+        <li><a href="fidelite.html" class="active">Fidélité ⭐</a></li>
+        <li>
+          <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank"
+            >Contactez-nous ⭐</a
+          >
+        </li>
+      </ul>
+      <div class="nav-actions">
+        <a href="fidelite.html" class="nav-icon-btn"
+          >⭐
+          <span
+            class="points-display"
+            style="
+              font-size: 11px;
+              font-weight: 800;
+              color: var(--orange);
+              margin-left: 2px;
+            "
+            >0 pts</span
+          ></a
+        >
+        <button class="nav-icon-btn" onclick="openCart()">
+          🛒 <span class="badge cart-badge-val" style="display: none">0</span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <div class="fid-hero page-content">
+      <div class="container">
+        <span class="section-label">⭐ Programme Fidélité VIBE</span>
+        <h1 class="section-title mb-24">VOS <span>POINTS</span></h1>
+        <div class="points-hero-card">
+          <div class="phc-label">Vos points cumulés</div>
+          <div class="phc-pts points-display" id="hero-pts">0</div>
+          <div class="phc-pts-label">1€ dépensé = 1 point fidélité</div>
+          <div class="phc-tier-badge">
+            <span id="hero-tier-icon">🥉</span>
+            <span id="hero-tier-name" style="color: #cd7f32">Bronze</span>
+            <span style="color: var(--muted); font-size: 12px"
+              >— niveau actuel</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="container" style="padding-top: 48px; padding-bottom: 80px">
+      <div
+        style="
+          display: grid;
+          grid-template-columns: 1.2fr 1fr;
+          gap: 28px;
+          margin-bottom: 28px;
+        "
+      >
+        <!-- PROGRESS BAR SECTION -->
+        <div class="progress-section">
+          <div class="progress-header">
+            <h3>📈 Votre Progression</h3>
+            <span style="font-size: 13px; color: var(--muted)"
+              ><span id="loyalty-bar-label">0 pts — 0%</span></span
+            >
+          </div>
+
+          <div style="margin-bottom: 24px">
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 8px;
+              "
+            >
+              <span
+                style="font-size: 13px; font-weight: 700; color: var(--white)"
+                id="loyalty-tier-name"
+                >Bronze</span
+              >
+              <span
+                style="font-size: 12px; color: var(--muted)"
+                id="loyalty-tier-reward"
+                >Réduction 5%</span
+              >
+            </div>
+            <div class="progress-track">
+              <div
+                class="progress-fill"
+                id="loyalty-bar-fill"
+                style="width: 0%"
+              ></div>
+            </div>
+            <div class="progress-labels">
+              <span id="prog-min">0</span>
+              <span id="prog-max">200</span>
+            </div>
+            <div class="progress-info" id="loyalty-tier-next">
+              Plus que 200 pts pour atteindre Silver
+            </div>
+          </div>
+
+          <!-- MILESTONES -->
+          <div class="progress-milestones">
+            <div class="milestone">
+              <div class="ms-dot reached" id="ms-0">✓</div>
+              <div class="ms-name" style="color: #cd7f32">Bronze</div>
+              <div class="ms-pts">0 pts</div>
+            </div>
+            <div class="milestone">
+              <div class="ms-dot" id="ms-1">🥈</div>
+              <div class="ms-name" style="color: #a8b2c0">Silver</div>
+              <div class="ms-pts">200 pts</div>
+            </div>
+            <div class="milestone">
+              <div class="ms-dot" id="ms-2">🥇</div>
+              <div class="ms-name" style="color: #ffd700">Gold</div>
+              <div class="ms-pts">500 pts</div>
+            </div>
+            <div class="milestone">
+              <div class="ms-dot" id="ms-3">💎</div>
+              <div class="ms-name" style="color: #e5e4e2">Platinum</div>
+              <div class="ms-pts">1000 pts</div>
+            </div>
+          </div>
+
+          <div
+            style="
+              margin-top: 28px;
+              background: rgba(255, 107, 26, 0.06);
+              border: 1px solid rgba(255, 107, 26, 0.15);
+              border-radius: 12px;
+              padding: 16px;
+            "
+          >
+            <div
+              style="
+                font-weight: 700;
+                font-size: 13px;
+                margin-bottom: 8px;
+                color: var(--orange);
+              "
+            >
+              🛒 Gagnez des points maintenant !
+            </div>
+            <div style="font-size: 12px; color: var(--muted); line-height: 1.6">
+              Chaque euro dépensé en boutique ou chaque mois d'abonnement salle
+              = 1 point. Accumulez pour débloquer des avantages exclusifs.
+            </div>
+            <div style="display: flex; gap: 10px; margin-top: 14px">
+              <a
+                href="boutique.html"
+                class="btn-primary"
+                style="font-size: 12px; padding: 9px 18px"
+                >🛍️ Boutique</a
+              >
+              <a
+                href="salle.html"
+                class="btn-blue"
+                style="font-size: 12px; padding: 9px 18px"
+                >🏋️ S'abonner</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- SIMULATOR -->
+        <div class="simulator-card">
+          <div class="sim-title">🧮 Simulateur</div>
+          <div class="sim-desc">
+            Simulez vos points selon vos achats prévus.
+          </div>
+          <div class="sim-row">
+            <div class="sim-input-wrap">
+              <label class="sim-label">Budget mensuel boutique (€)</label>
+              <input
+                class="sim-input"
+                id="sim-boutique"
+                type="number"
+                min="0"
+                value="50"
+                oninput="simulate()"
+              />
+            </div>
+            <div class="sim-input-wrap">
+              <label class="sim-label">Mois d'abonnement salle</label>
+              <input
+                class="sim-input"
+                id="sim-mois"
+                type="number"
+                min="0"
+                value="1"
+                oninput="simulate()"
+              />
+            </div>
+          </div>
+          <div class="sim-result">
+            <div class="sim-result-pts" id="sim-pts">84</div>
+            <div class="sim-result-label">points gagnés</div>
+            <div class="sim-result-tier" id="sim-tier-info"></div>
+          </div>
+          <div
+            style="
+              margin-top: 14px;
+              font-size: 12px;
+              color: var(--muted);
+              text-align: center;
+            "
+          >
+            💡 Avec
+            <strong style="color: var(--white)" id="sim-cumul">84 pts</strong>
+            de plus, vous atteignez le niveau
+            <strong style="color: var(--orange)" id="sim-next-tier"
+              >Silver (200 pts)</strong
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- TIERS -->
+      <div>
+        <span class="section-label">Niveaux & avantages</span>
+        <h2 class="section-title mb-8">VOTRE <span>RANG</span></h2>
+        <div class="tiers-grid" id="tiers-grid">
+          <!-- JS rendered -->
+        </div>
+      </div>
+
+      <!-- HISTORY -->
+      <div class="history-section mt-48">
+        <div class="flex-between mb-24">
+          <div>
+            <span class="section-label">Historique</span>
+            <h3
+              style="
+                font-family: &quot;Barlow Condensed&quot;, sans-serif;
+                font-size: 28px;
+                font-weight: 900;
+              "
+            >
+              MES TRANSACTIONS
+            </h3>
+          </div>
+          <button
+            class="btn-outline"
+            onclick="addTestPoints()"
+            style="font-size: 12px; padding: 8px 18px"
+          >
+            🧪 Test +100 pts
+          </button>
+        </div>
+        <table class="history-table" id="history-table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Description</th>
+              <th>Type</th>
+              <th>Points</th>
+            </tr>
+          </thead>
+          <tbody id="history-body">
+            <tr>
+              <td
+                colspan="4"
+                style="text-align: center; padding: 40px; color: var(--muted)"
+              >
+                Aucune transaction pour l'instant. Faites vos premiers achats !
+                🛒
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <span class="footer-logo-txt">VIBE SPORT</span>
+            <p class="footer-desc">
+              Boutique sport en ligne et salle de sport premium depuis 2026.
+              Qualité, performance et fidélité.
+            </p>
+          </div>
+          <div class="footer-col">
+            <h4>Navigation</h4>
+            <ul>
+              <li><a href="index.html">Accueil</a></li>
+              <li><a href="boutique.html">Boutique</a></li>
+              <li><a href="salle.html">Salle de Sport</a></li>
+              <li><a href="fidelite.html">Fidélité</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Boutique</h4>
+            <ul>
+              <li><a href="boutique.html">Nutrition</a></li>
+              <li><a href="boutique.html">Équipement</a></li>
+              <li><a href="boutique.html">Vêtements</a></li>
+              <li><a href="boutique.html">Accessoires</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>credit</h4>
+            <p>
+              réalisé par <ul>
+                <li>Lea </li>
+                <li><a href="VID_20260324_151628_197.mp4" target="_blank" style="color: white;">Emma</a></li>
+                <li>Jules</li>
+                <li>Kilian</li>
+                <li>Julien</li>
+              </ul>
+              
+            </p>
+          </div>
+          <div class="footer-col">
+            <h4>Aide</h4>
+            <ul>
+              <li><a href="#">Livraison</a></li>
+              <li><a href="#">Retours</a></li>
+              <li><a href="#">FAQ</a></li>
+              <li>
+                <a
+                  href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+                  target="_blank"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span class="footer-copy"
+            >© 2026 VIBE SPORT — Tous droits réservés.</span
+          >
+          <span class="footer-copy"
+            >Mentions légales · CGV · Confidentialité</span
+          >
+        </div>
+      </div>
+    </footer>
+
+    <!-- CART -->
+    <div class="cart-overlay" id="cart-overlay" onclick="closeCart()"></div>
+    <div class="cart-sidebar" id="cart-sidebar">
+      <div class="cart-header">
+        <div class="cart-title">🛒 Mon Panier</div>
+        <button class="cart-close" onclick="closeCart()">✕</button>
+      </div>
+      <div class="cart-items" id="cart-items"></div>
+      <div class="cart-footer">
+        <div class="cart-points-earn" id="cart-earn-pts">
+          +0 pts fidélité à gagner
+        </div>
+        <div class="cart-totals">
+          <div class="cart-total-row">
+            <span>Sous-total</span><span id="cart-subtotal">0.00 €</span>
+          </div>
+          <div class="cart-total-row">
+            <span>Livraison</span><span style="color: #22c55e">Offerte</span>
+          </div>
+          <div class="cart-total-row grand">
+            <span>Total</span><span class="val" id="cart-grand">0.00 €</span>
+          </div>
+        </div>
+        <button class="checkout-btn" onclick="STORE.checkout()">
+          COMMANDER →
+        </button>
+      </div>
+    </div>
+    <div class="modal-overlay" id="order-modal">
+      <div class="modal-box">
+        <div style="font-size: 64px; margin-bottom: 16px">🎉</div>
+        <div
+          style="
+            font-family: &quot;Barlow Condensed&quot;, sans-serif;
+            font-size: 40px;
+            font-weight: 900;
+            margin-bottom: 8px;
+          "
+        >
+          COMMANDÉ AVEC SUCCÈS !
+        </div>
+        <p style="color: var(--muted); font-size: 14px; margin-bottom: 24px">
+          Livraison sous 48h.
+        </p>
+        <div
+          style="
+            background: var(--dark3);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 20px;
+            margin-bottom: 20px;
+          "
+        >
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              margin-bottom: 8px;
+            "
+          >
+            <span style="color: var(--muted); font-size: 13px">Total</span
+            ><span style="font-weight: 800" id="om-total">0 €</span>
+          </div>
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              margin-bottom: 8px;
+            "
+          >
+            <span style="color: var(--muted); font-size: 13px"
+              >Points gagnés</span
+            ><span style="font-weight: 800; color: var(--orange)" id="om-points"
+              >0 pts</span
+            >
+          </div>
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              border-top: 1px solid var(--border);
+              padding-top: 8px;
+            "
+          >
+            <span style="color: var(--muted); font-size: 13px">Cumulé</span
+            ><span
+              style="
+                font-family: &quot;Barlow Condensed&quot;, sans-serif;
+                font-size: 22px;
+                font-weight: 900;
+                color: var(--blue-light);
+              "
+              id="om-total-pts"
+              >0 pts</span
+            >
+          </div>
+        </div>
+        <div style="display: flex; gap: 12px">
+          <button
+            onclick="
+              closeOrderModal();
+              location.reload();
+            "
+            class="btn-blue"
+            style="flex: 1; padding: 12px"
+          >
+            Voir mes points ⭐
+          </button>
+          <button
+            onclick="closeOrderModal()"
+            class="btn-outline"
+            style="flex: 1"
+          >
+            Fermer
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="toast-container" class="toast-container"></div>
+
+    <script src="app.js"></script>
+    <script>
+      const TIERS = [
+        {
+          name: "Bronze",
+          icon: "🥉",
+          color: "#cd7f32",
+          min: 0,
+          max: 200,
+          rewards: [
+            "✅ Réduction 5% dès 0 pts",
+            "🚚 Livraison standard",
+            "⭐ Cumul de points actif",
+            "🎁 Cadeau anniversaire",
+          ],
+        },
+        {
+          name: "Silver",
+          icon: "🥈",
+          color: "#a8b2c0",
+          min: 200,
+          max: 500,
+          rewards: [
+            "✅ Réduction 10% sur tout",
+            "🚚 Livraison prioritaire",
+            "🎁 Cadeau mensuel",
+            "💬 Support prioritaire",
+          ],
+        },
+        {
+          name: "Gold",
+          icon: "🥇",
+          color: "#ffd700",
+          min: 500,
+          max: 1000,
+          rewards: [
+            "✅ Réduction 15% sur tout",
+            "🆓 Livraison toujours offerte",
+            "🎁 Cadeau exclusif / mois",
+            "👨‍💼 Coach dédié 1h/mois",
+          ],
+        },
+        {
+          name: "Platinum",
+          icon: "💎",
+          color: "#e5e4e2",
+          min: 1000,
+          max: Infinity,
+          rewards: [
+            "✅ Réduction 20% sur tout",
+            "🆓 Livraison express offerte",
+            "🎁 Ventes privées VIP",
+            "🏆 Accès avant-première",
+          ],
+        },
+      ];
+
+      const historyData = JSON.parse(
+        localStorage.getItem("fz_history") || "[]",
+      );
+
+      // Hook into STORE to capture transactions
+      const origCheckout = STORE.checkout.bind(STORE);
+      STORE.checkout = function () {
+        const total = this.cartTotal();
+        const earned = Math.floor(total);
+        historyData.unshift({
+          date: new Date().toLocaleDateString("fr-FR"),
+          desc: "Commande boutique",
+          type: "achat",
+          pts: earned,
+          total,
+        });
+        localStorage.setItem(
+          "fz_history",
+          JSON.stringify(historyData.slice(0, 20)),
+        );
+        origCheckout();
+        renderAll();
+      };
+
+      const origGym = STORE.subscribeGym.bind(STORE);
+      STORE.subscribeGym = function () {
+        historyData.unshift({
+          date: new Date().toLocaleDateString("fr-FR"),
+          desc: "Abonnement Salle FORZA",
+          type: "abonnement",
+          pts: 34,
+          total: 34.99,
+        });
+        localStorage.setItem(
+          "fz_history",
+          JSON.stringify(historyData.slice(0, 20)),
+        );
+        origGym();
+        renderAll();
+      };
+
+      function renderAll() {
+        renderTiers();
+        renderHistory();
+        updateLoyaltyPageUI();
+        simulate();
+      }
+
+      function updateLoyaltyPageUI() {
+        const pts = STORE.points;
+        // hero pts
+        const heroEl = document.getElementById("hero-pts");
+        if (heroEl) heroEl.textContent = pts + " pts";
+        // tier hero
+        let tier = TIERS[0];
+        for (const t of TIERS) {
+          if (pts >= t.min) tier = t;
+        }
+        const hi = document.getElementById("hero-tier-icon");
+        const hn = document.getElementById("hero-tier-name");
+        if (hi) hi.textContent = tier.icon;
+        if (hn) {
+          hn.textContent = tier.name;
+          hn.style.color = tier.color;
+        }
+        // milestone dots
+        const milestones = [0, 200, 500, 1000];
+        milestones.forEach((m, i) => {
+          const dot = document.getElementById("ms-" + i);
+          if (!dot) return;
+          if (
+            pts >= m &&
+            (i + 1 >= milestones.length || pts < milestones[i + 1])
+          ) {
+            dot.className = "ms-dot current";
+            dot.textContent = TIERS[i].icon;
+          } else if (pts >= m) {
+            dot.className = "ms-dot reached";
+            dot.textContent = "✓";
+          } else {
+            dot.className = "ms-dot";
+            dot.textContent = TIERS[i].icon;
+          }
+        });
+        // update prog min/max labels
+        let ci = 0;
+        for (let i = 0; i < TIERS.length; i++) {
+          if (pts >= TIERS[i].min) ci = i;
+        }
+        const ct = TIERS[ci];
+        const nt = TIERS[ci + 1];
+        const mn = document.getElementById("prog-min");
+        const mx = document.getElementById("prog-max");
+        if (mn) mn.textContent = ct.min + " pts";
+        if (mx) mx.textContent = (nt ? nt.min : ct.min) + " pts";
+      }
+
+      function renderTiers() {
+        const pts = STORE.points;
+        const grid = document.getElementById("tiers-grid");
+        if (!grid) return;
+        grid.innerHTML = TIERS.map((t) => {
+          const isActive = pts >= t.min && (t.max === Infinity || pts < t.max);
+          const isReached = pts >= t.min;
+          const isLocked = pts < t.min;
+          return `
+        <div class="tier-card ${isActive ? "active" : ""} ${isLocked ? "locked" : ""}" style="${isActive ? "border-color:" + t.color + ";" : ""} ${isActive ? "box-shadow:0 0 30px " + t.color + "22" : ""} ">
+          ${isActive ? '<span class="tier-active-badge">✓ Votre niveau</span>' : ""}
+          <div class="tier-icon">${t.icon}</div>
+          <div class="tier-name" style="color:${t.color}">${t.name}</div>
+          <div class="tier-pts-req">à partir de ${t.min} pts${t.max !== Infinity ? ` · jusqu'à ${t.max} pts` : " · niveau max"}</div>
+          <ul class="tier-rewards">
+            ${t.rewards.map((r) => `<li>${r}</li>`).join("")}
+          </ul>
+          ${isLocked ? `<div style="margin-top:12px;font-size:11px;color:var(--muted);text-align:center;">🔒 Encore ${t.min - pts} pts</div>` : ""}
+        </div>`;
+        }).join("");
+      }
+
+      function renderHistory() {
+        const tbody = document.getElementById("history-body");
+        if (!tbody) return;
+        const typeLabels = {
+          achat: "🛒 Achat",
+          abonnement: "🏋️ Abonnement",
+          test: "🧪 Test",
+        };
+        if (historyData.length === 0) {
+          tbody.innerHTML =
+            '<tr><td colspan="4" style="text-align:center;padding:40px;color:var(--muted);">Aucune transaction pour l\'instant. Faites vos premiers achats ! 🛒</td></tr>';
+          return;
+        }
+        tbody.innerHTML = historyData
+          .map(
+            (h) => `
+      <tr>
+        <td style="color:var(--muted)">${h.date}</td>
+        <td>${h.desc}${h.total ? ` — <span style="color:var(--muted);font-size:12px;">${h.total.toFixed ? h.total.toFixed(2) : h.total} €</span>` : ""}</td>
+        <td><span class="h-type">${typeLabels[h.type] || h.type}</span></td>
+        <td><span class="pts-positive">+${h.pts} pts</span></td>
+      </tr>`,
+          )
+          .join("");
+      }
+
+      function simulate() {
+        const boutique = parseFloat(
+          document.getElementById("sim-boutique")?.value || 0,
+        );
+        const mois = parseInt(document.getElementById("sim-mois")?.value || 0);
+        const earnedShop = Math.floor(boutique);
+        const earnedGym = mois * 34;
+        const total = earnedShop + earnedGym;
+        const cumul = STORE.points + total;
+        const el = document.getElementById("sim-pts");
+        const elCumul = document.getElementById("sim-cumul");
+        const elNext = document.getElementById("sim-next-tier");
+        const elTier = document.getElementById("sim-tier-info");
+        if (el) el.textContent = total;
+        if (elCumul) elCumul.textContent = cumul + " pts";
+        // find next tier
+        let nextTier = null;
+        for (const t of TIERS) {
+          if (cumul < t.min) {
+            nextTier = t;
+            break;
+          }
+        }
+        if (elNext)
+          elNext.textContent = nextTier
+            ? `${nextTier.name} (${nextTier.min} pts)`
+            : "🏆 Niveau Platinum atteint !";
+        if (elTier) {
+          let ct = TIERS[0];
+          for (const t of TIERS) {
+            if (cumul >= t.min) ct = t;
+          }
+          elTier.textContent = `→ Niveau ${ct.name} ${ct.icon}`;
+          elTier.style.color = ct.color;
+        }
+      }
+
+      function addTestPoints() {
+        STORE.points += 100;
+        STORE.save();
+        historyData.unshift({
+          date: new Date().toLocaleDateString("fr-FR"),
+          desc: "Points de test ajoutés",
+          type: "test",
+          pts: 100,
+        });
+        localStorage.setItem(
+          "fz_history",
+          JSON.stringify(historyData.slice(0, 20)),
+        );
+        updateLoyaltyBar();
+        updatePointsDisplay();
+        renderAll();
+        showToast("🧪 Test", "+100 points fidélité ajoutés !", "orange");
+      }
+
+      // Override updateLoyaltyBar to update milestones too
+      const origBar = window.updateLoyaltyBar;
+      window.updateLoyaltyBar = function () {
+        if (origBar) origBar();
+        updateLoyaltyPageUI();
+      };
+
+      document.addEventListener("DOMContentLoaded", () => {
+        renderAll();
+      });
+    </script>
+  </body>
+</html>
