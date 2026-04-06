@@ -2259,3 +2259,297 @@ footer {
 .sec-pad {
   padding: 80px 0;
 }
+
+
+/* =============================================
+   RESPONSIVE — Media Queries
+   Breakpoints: 1024px · 768px · 480px
+   ============================================= */
+
+/* ── Hamburger (masqué sur desktop) ─────────── */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: var(--dark3);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+.nav-hamburger:hover { background: rgba(255,107,26,0.15); }
+.nav-hamburger span {
+  display: block;
+  height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+  transition: transform 0.3s, opacity 0.3s;
+}
+.nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+
+/* ══════════════════════════════════════════════
+   TABLET  ≤ 1024px
+══════════════════════════════════════════════ */
+@media (max-width: 1024px) {
+
+  .navbar { padding: 0 20px; }
+
+  .container { padding: 0 24px; }
+
+  /* Hero accueil */
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  .hero-left { padding: 100px 40px 60px; }
+  .hero-right { min-height: 300px; }
+
+  /* Hero salle */
+  .gym-hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  .gym-hero-left { padding: 100px 40px 60px; }
+  .gym-hero-right { min-height: 260px; }
+
+  /* Grilles → 2 colonnes */
+  .grid-3,
+  .grid-4,
+  .grid-5,
+  .tiers-grid,
+  .coaches-grid,
+  .equip-grid,
+  .cours-grid,
+  .preview-grid { grid-template-columns: repeat(2, 1fr); }
+
+  .features-grid { grid-template-columns: repeat(2, 1fr); }
+  .feat-item:nth-child(2) { border-right: none; }
+  .feat-item:nth-child(odd) { border-right: 1px solid var(--border); }
+  .feat-item { padding: 20px 24px; }
+
+  /* Footer */
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+
+  /* Split section */
+  .split-section { grid-template-columns: 1fr; }
+
+  /* Loyalty teaser */
+  .loyalty-teaser { grid-template-columns: 1fr; padding: 32px; gap: 24px; }
+
+  /* Shop layout */
+  .shop-layout { grid-template-columns: 200px 1fr; }
+  .products-grid-shop { grid-template-columns: repeat(2, 1fr); }
+
+  /* Fidelite grid inline */
+  [style*="grid-template-columns: 1.2fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+
+/* ══════════════════════════════════════════════
+   MOBILE  ≤ 768px
+══════════════════════════════════════════════ */
+@media (max-width: 768px) {
+
+  /* ── Navbar ── */
+  .navbar {
+    padding: 0 16px;
+    height: 60px;
+    overflow: visible;
+  }
+  .nav-hamburger { display: flex; }
+
+  .nav-links {
+    display: flex !important;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: rgba(13,15,26,0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    padding: 12px;
+    gap: 4px;
+    z-index: 99999;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-6px);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.7);
+  }
+  .nav-links.mobile-open {
+    opacity: 1;
+    pointer-events: all;
+    transform: translateY(0);
+  }
+  .nav-links li { width: 100%; }
+  .nav-links a {
+    display: block;
+    padding: 12px 16px;
+    font-size: 15px;
+    border-radius: 10px;
+    width: 100%;
+  }
+
+  /* Nav logo + actions */
+  .nav-logo { font-size: 22px; letter-spacing: 2px; }
+  .nav-actions { gap: 6px; }
+
+  /* ── Page offset ── */
+  .page-content { padding-top: 60px; }
+
+  /* ── Container ── */
+  .container { padding: 0 16px; }
+
+  /* ── Hero accueil ── */
+  .hero { grid-template-columns: 1fr; min-height: auto; }
+  .hero-left { padding: 80px 20px 40px; }
+  .hero-right { min-height: 240px; }
+  .hero-main-emoji { font-size: 100px; }
+  .hero-stats {
+    flex-direction: column;
+    gap: 0;
+    margin-top: 32px;
+  }
+  .hero-stat {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    padding: 16px 0;
+    margin-right: 0;
+  }
+  .hero-stat:last-child { border-bottom: none; }
+  .hero-btns { flex-direction: column; }
+  .hero-btns .btn-primary,
+  .hero-btns .btn-blue,
+  .hero-btns .btn-outline { width: 100%; text-align: center; }
+
+  /* ── Hero salle ── */
+  .gym-hero { grid-template-columns: 1fr; min-height: auto; }
+  .gym-hero-left { padding: 80px 20px 40px; }
+  .gym-hero-right { min-height: 200px; }
+  .gym-main-emoji { font-size: 90px; }
+
+  /* ── Toutes les grilles → 1 colonne ── */
+  .grid-2,
+  .grid-3,
+  .grid-4,
+  .grid-5,
+  .tiers-grid,
+  .coaches-grid,
+  .equip-grid,
+  .cours-grid,
+  .preview-grid { grid-template-columns: 1fr; }
+
+  /* ── Features strip → 1 colonne ── */
+  .features-grid { grid-template-columns: 1fr; }
+  .feat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+    padding: 20px 0;
+  }
+  .feat-item:last-child { border-bottom: none; }
+
+  /* ── Split section ── */
+  .split-section { grid-template-columns: 1fr; }
+  .split-pane { padding: 40px 20px; }
+
+  /* ── Footer ── */
+  footer { padding: 40px 16px 24px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+  .footer-bottom { flex-direction: column; text-align: center; gap: 12px; }
+
+  /* ── Boutique shop layout → sidebar au dessus ── */
+  .shop-layout { grid-template-columns: 1fr; }
+  .filter-sidebar { position: static; }
+  .products-grid-shop { grid-template-columns: repeat(2, 1fr); }
+  .shop-hero { padding: 80px 0 40px; }
+  .shop-hero-title { font-size: 48px; }
+  .shop-hero::before { font-size: 100px; }
+
+  /* ── Fidélité grilles inline ── */
+  [style*="grid-template-columns: 1.2fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* ── Points hero card ── */
+  .points-hero-card { padding: 24px 16px; }
+  .phc-pts { font-size: 64px; }
+
+  /* ── Progress ── */
+  .progress-section { padding: 20px; }
+  .progress-header { flex-direction: column; align-items: flex-start; gap: 6px; }
+  .progress-milestones { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .milestone::before { display: none; }
+
+  /* ── Tiers grid ── */
+  .tiers-grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* ── Loyalty teaser ── */
+  .loyalty-teaser { grid-template-columns: 1fr; padding: 20px; gap: 20px; }
+  .lt-title { font-size: 32px; }
+  .lt-tiers { flex-wrap: wrap; }
+
+  /* ── Cart sidebar pleine largeur ── */
+  .cart-sidebar { width: 100%; }
+
+  /* ── Toast ── */
+  .toast-container { right: 12px; left: 12px; bottom: 16px; }
+  .toast { min-width: unset; }
+
+  /* ── Fid hero ── */
+  .fid-hero { padding: 80px 0 40px; }
+  .fid-hero::before { font-size: 160px; }
+
+  /* ── Sec padding ── */
+  .sec-pad { padding: 48px 0; }
+
+  /* ── History table ── */
+  .history-section { padding: 16px; overflow-x: auto; }
+  .history-table { min-width: 480px; }
+
+  /* ── Simulator ── */
+  .sim-row { flex-direction: column; }
+
+  /* ── Sub card ── */
+  .sub-card-header { flex-direction: column; align-items: flex-start; gap: 10px; }
+}
+
+
+/* ══════════════════════════════════════════════
+   SMALL MOBILE  ≤ 480px
+══════════════════════════════════════════════ */
+@media (max-width: 480px) {
+
+  /* Tiers et produits → 1 colonne */
+  .tiers-grid { grid-template-columns: 1fr; }
+  .products-grid-shop { grid-template-columns: 1fr; }
+
+  /* Milestones → 1 colonne */
+  .progress-milestones { grid-template-columns: 1fr; }
+
+  /* Typographies */
+  .hero-title { font-size: 52px !important; }
+  .gym-title { font-size: 52px !important; }
+  .section-title { font-size: 34px !important; }
+  .split-title { font-size: 32px; }
+  .lt-pts-display { font-size: 52px; }
+  .phc-pts { font-size: 52px; }
+
+  /* Shop hero */
+  .shop-hero-title { font-size: 36px; }
+
+  /* Padding réduit */
+  .split-pane { padding: 32px 16px; }
+  .points-hero-card { padding: 20px 12px; }
+}

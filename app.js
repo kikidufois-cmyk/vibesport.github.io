@@ -278,13 +278,7 @@ const STORE = {
     if (existing) {
       existing.qty += qty;
     } else {
-      this.cart.push({
-        id: p.id,
-        name: p.name,
-        price: p.price,
-        emoji: p.emoji,
-        qty,
-      });
+      this.cart.push({ id: p.id, name: p.name, price: p.price, emoji: p.emoji, qty });
     }
     this.save();
     updateCartBadge();
@@ -312,6 +306,15 @@ const STORE = {
     const earned = Math.floor(total);
     this.points += earned;
     this.totalSpent += total;
+    // Save to history
+    const history = JSON.parse(localStorage.getItem("fz_history") || "[]");
+    history.unshift({
+      date: new Date().toLocaleDateString("fr-FR"),
+      label: "Commande boutique",
+      pts: earned,
+      type: "achat",
+    });
+    localStorage.setItem("fz_history", JSON.stringify(history.slice(0, 50)));
     this.cart = [];
     this.save();
     updateCartBadge();
@@ -324,13 +327,17 @@ const STORE = {
     const earned = Math.floor(34.99);
     this.points += earned;
     this.totalSpent += 34.99;
+    const history = JSON.parse(localStorage.getItem("fz_history") || "[]");
+    history.unshift({
+      date: new Date().toLocaleDateString("fr-FR"),
+      label: "Abonnement salle",
+      pts: earned,
+      type: "abonnement",
+    });
+    localStorage.setItem("fz_history", JSON.stringify(history.slice(0, 50)));
     this.save();
     updatePointsDisplay();
-    showToast(
-      "🏋️ Abonnement salle",
-      "Commandé avec succès ! +34 pts fidélité",
-      "blue",
-    );
+    showToast("🏋️ Abonnement salle", "Commandé avec succès ! +34 pts fidélité", "blue");
   },
 };
 
@@ -387,8 +394,7 @@ function renderCartItems() {
     el.innerHTML = `<div class="cart-empty"><div class="cart-empty-icon">🛒</div><div>Votre panier est vide</div></div>`;
   } else {
     el.innerHTML = STORE.cart
-      .map(
-        (item) => `
+      .map((item) => `
       <div class="cart-item">
         <div class="cart-item-img">${item.emoji}</div>
         <div class="cart-item-info">
@@ -401,19 +407,16 @@ function renderCartItems() {
           </div>
         </div>
         <button class="remove-item" onclick="STORE.removeFromCart(${item.id})">✕</button>
-      </div>`,
-      )
+      </div>`)
       .join("");
   }
 
-  // totals
   const sub = document.getElementById("cart-subtotal");
   const grand = document.getElementById("cart-grand");
   const pts = document.getElementById("cart-earn-pts");
   if (sub) sub.textContent = total.toFixed(2) + " €";
   if (grand) grand.textContent = total.toFixed(2) + " €";
-  if (pts)
-    pts.textContent = `+${earned} pts fidélité à gagner sur cette commande`;
+  if (pts) pts.textContent = `+${earned} pts fidélité à gagner sur cette commande`;
 }
 
 function updateCartBadge() {
@@ -428,47 +431,18 @@ function updatePointsDisplay() {
   document.querySelectorAll(".points-display").forEach((el) => {
     el.textContent = STORE.points + " pts";
   });
-  // loyalty bar if exists
   updateLoyaltyBar();
 }
 
 function updateLoyaltyBar() {
   const tiers = [
-    {
-      name: "Bronze",
-      min: 0,
-      max: 200,
-      reward: "Réduction 5%",
-      color: "#cd7f32",
-    },
-    {
-      name: "Silver",
-      min: 200,
-      max: 500,
-      reward: "Réduction 10% + cadeau",
-      color: "#a8b2c0",
-    },
-    {
-      name: "Gold",
-      min: 500,
-      max: 1000,
-      reward: "Réduction 15% + livraison offerte",
-      color: "#ffd700",
-    },
-    {
-      name: "Platinum",
-      min: 1000,
-      max: 2000,
-      reward: "Réduction 20% + accès VIP",
-      color: "#e5e4e2",
-    },
+    { name: "Bronze", min: 0, max: 200, reward: "Réduction 5%", color: "#cd7f32" },
+    { name: "Silver", min: 200, max: 500, reward: "Réduction 10% + cadeau", color: "#a8b2c0" },
+    { name: "Gold", min: 500, max: 1000, reward: "Réduction 15% + livraison offerte", color: "#ffd700" },
+    { name: "Platinum", min: 1000, max: 2000, reward: "Réduction 20% + accès VIP", color: "#e5e4e2" },
   ];
   const pts = STORE.points;
   const bar = document.getElementById("loyalty-bar-fill");
-  const barLabel = document.getElementById("loyalty-bar-label");
-  const tierLabel = document.getElementById("loyalty-tier-name");
-  const tierReward = document.getElementById("loyalty-tier-reward");
-  const tierNext = document.getElementById("loyalty-tier-next");
   if (!bar) return;
 
   let current = tiers[tiers.length - 1];
@@ -485,36 +459,50 @@ function updateLoyaltyBar() {
     : 100;
   bar.style.width = pct + "%";
   bar.style.background = `linear-gradient(90deg, ${current.color}, ${next ? next.color : current.color})`;
+
+  const barLabel = document.getElementById("loyalty-bar-label");
+  const tierLabel = document.getElementById("loyalty-tier-name");
+  const tierReward = document.getElementById("loyalty-tier-reward");
+  const tierNext = document.getElementById("loyalty-tier-next");
   if (barLabel) barLabel.textContent = `${pts} pts — ${pct.toFixed(0)}%`;
-  if (tierLabel) {
-    tierLabel.textContent = current.name;
-    tierLabel.style.color = current.color;
-  }
+  if (tierLabel) { tierLabel.textContent = current.name; tierLabel.style.color = current.color; }
   if (tierReward) tierReward.textContent = current.reward;
-  if (tierNext && next)
-    tierNext.textContent = `Plus que ${next.min - pts} pts pour atteindre ${next.name} (${next.reward})`;
-  else if (tierNext)
-    tierNext.textContent = "🏆 Niveau maximum atteint ! Félicitations !";
+  if (tierNext && next) tierNext.textContent = `Plus que ${next.min - pts} pts pour atteindre ${next.name} (${next.reward})`;
+  else if (tierNext) tierNext.textContent = "🏆 Niveau maximum atteint ! Félicitations !";
 }
 
-// ── Init on DOMContentLoaded ──────────────────
+// ── Hamburger menu ────────────────────────────
+function toggleMobileMenu() {
+  var links = document.querySelector(".nav-links");
+  var btn = document.getElementById("navHamburger");
+  if (!links || !btn) return;
+  links.classList.toggle("mobile-open");
+  btn.classList.toggle("open");
+}
+
+// ── Init ──────────────────────────────────────
 document.addEventListener("DOMContentLoaded", () => {
   updateCartBadge();
   updatePointsDisplay();
   renderCartItems();
 
+  // Close mobile menu on link click
+  document.querySelectorAll(".nav-links a").forEach((a) => {
+    a.addEventListener("click", () => {
+      document.querySelector(".nav-links")?.classList.remove("mobile-open");
+      document.getElementById("navHamburger")?.classList.remove("open");
+    });
+  });
+
   // Filter buttons
   document.querySelectorAll(".filter-btn").forEach((btn) => {
     btn.addEventListener("click", () => {
       const group = btn.dataset.group || "default";
-      document
-        .querySelectorAll(`.filter-btn[data-group="${group}"]`)
-        .forEach((b) => b.classList.remove("active"));
+      document.querySelectorAll(`.filter-btn[data-group="${group}"]`).forEach((b) => b.classList.remove("active"));
       btn.classList.add("active");
       const cat = btn.dataset.cat;
       document.querySelectorAll(".product-card[data-cat]").forEach((card) => {
-        card.style.display =
-          cat === "all" || card.dataset.cat === cat ? "" : "none";
+        card.style.display = cat === "all" || card.dataset.cat === cat ? "" : "none";
       });
     });
   });
